@@ -13,7 +13,7 @@
 - Vérifie que le provider bgutil répond (`/ping`) avant de télécharger, et relance son conteneur Docker s'il est arrêté.
 - **Abandonne** si le provider reste indisponible : sans PO Token, yt-dlp peut retomber en silence sur une basse qualité, et la vidéo serait alors inscrite dans l'archive.
 - Tient une archive (`archive.txt`) pour ne jamais retélécharger une vidéo.
-- Choisit la meilleure résolution, fusionne en MKV, intègre chapitres, miniature et métadonnées.
+- Choisit la meilleure résolution, fusionne en MKV, intègre chapitres, miniature, métadonnées et sous-titres (piste désactivable, non incrustée dans l'image).
 - Accepte une ou plusieurs URL, ou un fichier texte contenant une URL par ligne.
 - Peut mettre yt-dlp à jour une fois par jour (optionnel).
 
@@ -81,7 +81,7 @@ Tous optionnels, à définir une seule fois avec `set -U NOM valeur`.
 - Checks that the bgutil provider answers (`/ping`) before downloading, and restarts its Docker container if it is stopped.
 - **Aborts** if the provider stays unreachable: without a PO Token, yt-dlp may silently fall back to low quality, and that video would then be recorded in the archive.
 - Keeps a download archive (`archive.txt`) so a video is never downloaded twice.
-- Picks the best resolution, merges to MKV, embeds chapters, thumbnail and metadata.
+- Picks the best resolution, merges to MKV, embeds chapters, thumbnail, metadata and subtitles (soft track, not burned in).
 - Takes one or more URLs, or a text file with one URL per line.
 - Can update yt-dlp once a day (optional).
 

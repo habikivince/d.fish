@@ -126,7 +126,9 @@ function d --description "Télécharge des vidéos YouTube via yt-dlp (+ bgutil-
 
     if set -q D_LANG[1]
         set fmt "bv*+ba[language^=$D_LANG]/$fmt"
-        set -a opts --write-subs --sub-langs "$D_LANG.*"
+        # --embed-subs seul : la piste est rangée dans le MKV (désactivable dans le
+        # lecteur, image non modifiée) et aucun fichier séparé n'est conservé.
+        set -a opts --embed-subs --sub-langs "$D_LANG.*"
     end
     if set -q D_COOKIES_BROWSER[1]
         set -a opts --cookies-from-browser $D_COOKIES_BROWSER
